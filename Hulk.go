@@ -215,7 +215,7 @@ func httpcall(url string, host string, data string, headers arrayFlags, s chan u
 		r.Body.Close()
 		s <- callGotOk
 		if safe {
-			if r.StatusCode >= 500 {
+			if r.StatusCode >= 400 {
 				s <- targetComplete
 			}
 		}
